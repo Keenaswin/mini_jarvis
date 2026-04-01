@@ -1,0 +1,37 @@
+# ─────────────────────────────────────────────────────────────
+# Mini Jarvis — Python Dependencies
+# Install with: pip install -r requirements.txt
+#
+# Platform notes:
+#   llama-cpp-python requires a C++ compiler.
+#   macOS:   brew install cmake  (Xcode tools usually sufficient)
+#   Ubuntu:  sudo apt install cmake build-essential
+#   Windows: Install Visual Studio Build Tools
+#
+# GPU / Metal acceleration:
+#   macOS (Apple Silicon):
+#     CMAKE_ARGS="-DLLAMA_METAL=on" pip install llama-cpp-python
+#   NVIDIA CUDA:
+#     CMAKE_ARGS="-DLLAMA_CUBLAS=on" pip install llama-cpp-python
+# ─────────────────────────────────────────────────────────────
+
+# ── Core ML ───────────────────────────────────────────────────
+sentence-transformers>=2.7.0     # Local embeddings (all-MiniLM-L6-v2)
+faiss-cpu>=1.8.0                  # Vector similarity search
+
+# ── Local LLM ─────────────────────────────────────────────────
+# llama-cpp-python installs a CPU build by default.
+# See GPU instructions above for hardware acceleration.
+llama-cpp-python>=0.2.90
+
+# ── Utilities ─────────────────────────────────────────────────
+numpy>=1.24.0                     # Array operations
+
+# ── Optional: better datetime parsing ─────────────────────────
+# Uncomment to enable natural-language date parsing beyond the
+# built-in regex (e.g. "next Friday", "in two weeks"):
+# dateparser>=1.2.0
+
+# ── Optional: desktop notifications ──────────────────────────
+# Enables native OS popups for task reminders:
+# plyer>=2.1.0
